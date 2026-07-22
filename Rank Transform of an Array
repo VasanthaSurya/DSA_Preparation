@@ -1,0 +1,13 @@
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        temp = arr[:]
+        temp.sort()
+        i = 1
+        frequencyCount = {}
+        for item in temp:
+            if item not in frequencyCount:
+                frequencyCount[item] = i
+                i += 1
+        return [frequencyCount[value] for value in arr]
+
+        
