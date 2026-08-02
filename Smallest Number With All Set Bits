@@ -1,0 +1,21 @@
+class Solution:
+    def smallestNumber(self, n: int) -> int:
+
+        opt_range = [1, 3, 7, 15, 31, 63, 127, 255, 511, 1023]
+
+        return opt_range[self.binary_search(opt_range, n)]
+
+    def binary_search(self, arr, target):
+
+        left, right = 0, len(arr) - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+            if arr[mid] == target:
+                return mid
+            elif arr[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return left
